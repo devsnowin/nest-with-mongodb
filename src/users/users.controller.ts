@@ -8,11 +8,11 @@ import {
   Post,
   Put,
 } from '@nestjs/common'
+import mongoose from 'mongoose'
 
 import { CreateUserDto } from './dto/createUser'
 import { UpdateUserDto } from './dto/updateUser'
 import { UsersService } from './users.service'
-import mongoose from 'mongoose'
 
 @Controller('users')
 export class UsersController {

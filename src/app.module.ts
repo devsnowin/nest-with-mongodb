@@ -4,6 +4,7 @@ import { MongooseModule } from '@nestjs/mongoose'
 
 import { AppController } from './app.controller'
 import { AppService } from './app.service'
+import { PostsModule } from './posts/posts.module'
 import { UsersModule } from './users/users.module'
 
 @Module({
@@ -17,6 +18,7 @@ import { UsersModule } from './users/users.module'
       inject: [ConfigService],
     }),
     UsersModule,
+    PostsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
