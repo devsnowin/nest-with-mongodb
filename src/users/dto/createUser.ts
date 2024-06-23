@@ -1,3 +1,4 @@
+import { Type } from 'class-transformer'
 import {
   IsString,
   IsEmail,
@@ -5,7 +6,19 @@ import {
   IsNotEmpty,
   IsUrl,
   IsOptional,
+  IsBoolean,
+  ValidateNested,
 } from 'class-validator'
+
+export class CreateUserSettingsDto {
+  @IsBoolean()
+  @IsOptional()
+  receiveNotifications?: boolean
+
+  @IsBoolean()
+  @IsOptional()
+  darkTheme?: boolean
+}
 
 export class CreateUserDto {
   @IsNotEmpty()
@@ -28,4 +41,9 @@ export class CreateUserDto {
   @IsNotEmpty()
   @IsStrongPassword()
   password: string
+
+  @IsOptional()
+  @ValidateNested()
+  @Type(() => CreateUserSettingsDto)
+  settings?: CreateUserSettingsDto
 }

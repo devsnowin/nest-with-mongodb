@@ -20,7 +20,7 @@ export class UsersController {
 
   @Post()
   async createUser(@Body() payload: CreateUserDto) {
-    return this.usersService.create(payload)
+    return await this.usersService.create(payload)
   }
 
   @Get()
